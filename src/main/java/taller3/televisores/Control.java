@@ -11,32 +11,32 @@ public class Control {
 
 	public void turnOn() {
 		if(tv instanceof TV) {
-			tv.turnOn(true);
+			tv.turnOn();
 		}
 	}
 	public void turnOff() {
 		if(tv instanceof TV) {
-			tv.turnOff(false);
+			tv.turnOff();
 		}
 	}
 	public void canalUp() {
 		if(tv instanceof TV) {
-			tv.canalUp(+1);
+			tv.canalUp();
 		}
 	}
 	public void canalDown() {
 		if(tv instanceof TV) {
-			tv.canalDown(-1);
+			tv.canalDown();
 		}
 	}
 	public void volumenUp() {
 		if(tv instanceof TV) {
-			tv.volumenUp(+1);
+			tv.volumenUp();
 		}
 	}
 	public void volumenDown() {
 		if(tv instanceof TV) {
-			tv.volumenDown(-1);
+			tv.volumenDown();
 		}
 	}
 	public void setCanal(int canal) {

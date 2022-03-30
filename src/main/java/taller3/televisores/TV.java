@@ -9,11 +9,12 @@ public class TV {
 	private boolean estado;
 	private int volumen = 1;
 	private Control control;
-	private int numTV;
+	private static int numTV;
 
 	public TV(Marca marca, boolean estado){
 		this.marca = marca;
 		this.estado = estado;
+		Tv.numTV ++;
 	}
 
 	public Marca getMarca() {
@@ -48,30 +49,30 @@ public class TV {
 	}
 
 	public int setVolumen (int volumena) {
-		volumen = volumena;
-		return volumen;
-	}
+		if((volumen>=0 && volumen<=7) && (this.estado)) {
+			this.volumen = volumena;
+			}}
 
 	public int getCanal() {
 		return canal;
 	}
 
 	public int setCanal (int canala) {
-		canal = canala;
-		return canal;
+		if((canal>= 1 && canal <=120) && (this.estado)) {
+			this.canal = canala;
+		}
 	}
 
-	public boolean turnOn(boolean estado){
-		return this.estado = true;
+	public void turnOn(){
+		this.estado = true;
 	}
 
-	public boolean turnOff(boolean estado){
-		return this.estado = false;
+	public void turnOff(){
+		this.estado = false;
 	}
 
-	public int setNumTV (int numTVa){
-		numTV = numTVa;
-		return numTV;
+	public static void setNumTV (int numTVa){
+		TV.numTV = numTVa;
 	}
 
 	public int getNumTV(){
@@ -82,33 +83,29 @@ public class TV {
 		return estado;
 	}
 
-	public int canalUp(int aum){//revisar puede haber errorer en la ejecucion del gitjava
-		if(aum == 1 && canal >1 && canal < 120){
-			this.canal = canal+1;
+	public void canalUp(){//revisar puede haber errorer en la ejecucion del gitjava
+		if(this.estado && this.canal<120) {
+			this.canal++;
 		}
-		return aum;
 	}
 
-	public int canalDown(int baj){ //revisar puede haber errorer en la ejecucion del gitjava
-		if(baj == -1 && canal >1 && canal < 120){
-			this.canal = canal -1;
-		}
-		return baj;
+	public void canalDown(){ //revisar puede haber errorer en la ejecucion del gitjava
+		if(this.estado && this.canal>1) {
+			this.canal--;
+			}
 	}
 
-	public int volumenUp (int up){ //revisar puede haber errorer en la ejecucion del gitjava
-		if(up == 1 && volumen >0 && volumen <7){
-			this.volumen = volumen + 1;
+	public void volumenUp (){ //revisar puede haber errorer en la ejecucion del gitjava
+		if(this.estado && this.volumen<7) {
+			this.volumen++;
 		}
-		return up;
 	}
 
 
-	public int volumenDown (int down){ //revisar puede haber errorer en la ejecucion del gitjava
-		if(down == -1 && volumen >0 && volumen <7){
-			this.volumen = volumen -1;
+	public void volumenDown (){ //revisar puede haber errorer en la ejecucion del gitjava
+		if(this.estado && this.volumen>0) {
+			this.volumen--;
 		}
-		return down;
 	}  
 }
 
